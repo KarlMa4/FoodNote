@@ -1,50 +1,61 @@
-# Welcome to your Expo app 👋
+# FoodNote 🍽️
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+一個簡單實用的營養追蹤應用，幫助你監控每日飲食和營養攝取。
 
-## Get started
+## 功能特性
 
-1. Install dependencies
+- **📱 條碼掃描** - 使用 Open Food Facts API 快速掃描產品並獲取營養信息
+- **🍽️ 餐點建立** - 創建自訂餐點模板，方便重複使用
+- **📊 營養儀表板** - 一鍵查看每日熱量和三大營養素 (蛋白質、脂肪、碳水)
+- **🔢 份數選擇** - 直觀的份數選擇界面（1、1/2、1/4 等），每次調整 1/4
+- **💾 食材庫** - 保存最近掃描和手動新增的食材，方便查詢
+- **🌍 多語言支持** - 繁體中文和英文
 
-   ```bash
-   npm install
-   ```
+## 技術棧
 
-2. Start the app
+- **React Native + Expo** - 跨平台移動應用框架
+- **TypeScript** - 類型安全的代碼開發
+- **SQLite** - 本地數據存儲
+- **Open Food Facts API** - 食品營養數據
+- **React Navigation** - 應用路由和導航
 
-   ```bash
-   npx expo start
-   ```
+## 安裝與運行
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. 安裝依賴
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. 啟動應用
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. 在手機或模擬器中打開
+   - iOS：按 `i` 打開 iOS 模擬器
+   - Android：按 `a` 打開 Android 模擬器
+   - 掃描 QR Code 用 Expo Go 應用打開
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 主要頁面
 
-## Join the community
+- **首頁 (index)** - 日期選擇和每日營養摘要
+- **掃描 (scanner)** - 條碼掃描和產品查詢
+- **食材 (ingredient)** - 食材庫和管理
+- **餐點 (meals)** - 餐點模板管理
+- **餐點建立 (meal-builder)** - 創建和編輯餐點
 
-Join our community of developers creating universal apps.
+## 核心邏輯
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- 掃描後自動計算**整包營養值**（基於用戶輸入的總克數）
+- 份數模式：1 表示整份，精確到 1/4
+- 本地 SQLite 存儲所有用戶數據
+
+## 作者
+
+Karl Ma
+
+## License
+
+MIT
