@@ -1,33 +1,48 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { useLanguage } from "@/context/LanguageContext";
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
+  const { t } = useLanguage();
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: t("tabs.home"),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="ingredient"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: t("tabs.ingredient"),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="nutrition-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="meals"
+        options={{
+          title: t("tabs.meals"),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="restaurant-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="scanner"
+        options={{
+          title: t("tabs.scan"),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="scan-outline" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
